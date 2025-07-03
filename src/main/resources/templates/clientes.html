@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main}">
+<head>
+    <title>Clientes</title>
+    <link rel="stylesheet" th:href="@{/css/clientes.css}">
+</head>
+<body>
+<main layout:fragment="content">
+    <section class="form-container">
+        <h2>Registrar Cliente</h2>
+        <form>
+            <input type="text" placeholder="Nombres">
+            <input type="text" placeholder="Apellidos">
+            <input type="text" placeholder="Teléfono">
+            <input type="email" placeholder="Correo Electrónico">
+            <textarea placeholder="Dirección"></textarea>
+            <input type="text" placeholder="Distrito">
+            <select>
+                <option>Seleccione</option>
+                <option>Masculino</option>
+                <option>Femenino</option>
+            </select>
+            <input type="text" placeholder="DNI">
+            <button type="submit">Guardar Cliente</button>
+        </form>
+    </section>
+
+    <section class="table-container">
+        <div class="table-header">
+            <h2>Lista de Clientes</h2>
+            <input type="text" placeholder="Buscar por DNI">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Dirección</th>
+                    <th>Distrito</th>
+                    <th>Sexo</th>
+                    <th>DNI</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se cargarán los datos -->
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>

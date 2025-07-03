@@ -23,7 +23,7 @@ public class LoginController {
     public String login(@ModelAttribute("loginDTO") LoginDTO loginDTO, Model model) {
         boolean valid = authService.login(loginDTO.getNickname(), loginDTO.getPassword());
         if (valid) {
-            return "redirect:/home";
+            return "redirect:/clientes";
         } else {
             model.addAttribute("error", "Credenciales inválidas");
             return "login";
@@ -32,6 +32,6 @@ public class LoginController {
 
     @GetMapping("/home")
     public String home() {
-        return "home";
+        return "clientes";
     }
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title layout:title-pattern="$CONTENT_TITLE - Perfumería La Reyna">Perfumería La Reyna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <h1>Perfumería La Reyna</h1>
+        <form th:action="@{/login}" method="get">
+            <button type="submit" class="logout-button">Cerrar Sesión</button>
+        </form>
+    </div>
+    <nav>
+        <ul>
+            <li><a th:href="@{/clientes}" th:classappend="${paginaActual == 'clientes'} ? 'active'">Clientes</a></li>
+            <li><a th:href="@{/ventas}" th:classappend="${paginaActual == 'ventas'} ? 'active'">Ventas</a></li>
+            <li><a th:href="@{/reportes}" th:classappend="${paginaActual == 'reportes'} ? 'active'">Reportes</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container" layout:fragment="content">
+    <!-- Aquí se insertará el contenido específico de cada vista -->
+</main>
+
+</body>
+</html>
