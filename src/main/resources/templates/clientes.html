@@ -8,21 +8,23 @@
 </head>
 <body>
 <main layout:fragment="content">
+
     <section class="form-container">
         <h2>Registrar Cliente</h2>
-        <form>
-            <input type="text" placeholder="Nombres">
-            <input type="text" placeholder="Apellidos">
-            <input type="text" placeholder="Teléfono">
-            <input type="email" placeholder="Correo Electrónico">
-            <textarea placeholder="Dirección"></textarea>
-            <input type="text" placeholder="Distrito">
-            <select>
-                <option>Seleccione</option>
-                <option>Masculino</option>
-                <option>Femenino</option>
+
+        <form th:action="@{/clientes}" method="post" th:object="${cliente}">
+            <input type="text" th:field="*{nombre}" placeholder="Nombres" required>
+            <input type="text" th:field="*{apellido}" placeholder="Apellidos" required>
+            <input type="text" th:field="*{telefono}" placeholder="Teléfono">
+            <input type="email" th:field="*{correo}" placeholder="Correo Electrónico">
+            <textarea th:field="*{direccion}" placeholder="Dirección"></textarea>
+            <input type="text" th:field="*{distrito}" placeholder="Distrito">
+            <select th:field="*{sexo}">
+                <option value="">Seleccione</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
             </select>
-            <input type="text" placeholder="DNI">
+            <input type="text" th:field="*{dni}" placeholder="DNI" required>
             <button type="submit">Guardar Cliente</button>
         </form>
     </section>
@@ -51,6 +53,7 @@
             </tbody>
         </table>
     </section>
+
 </main>
 </body>
 </html>
