@@ -15,13 +15,13 @@ public class LoginController {
 
     @GetMapping("/login")
     public String showLoginForm(Model model) {
-        model.addAttribute("loginDTO", new LoginDTO());
+        model.addAttribute("loginDTO", new LoginDTO()); // Agrega un objeto LoginDTO vacío al modelo para el formulario
         return "login";
     }
 
     @PostMapping("/login")
     public String login(@ModelAttribute("loginDTO") LoginDTO loginDTO, Model model) {
-        boolean valid = authService.login(loginDTO.getNickname(), loginDTO.getPassword());
+        boolean valid = authService.login(loginDTO.getNickname(), loginDTO.getPassword()); // Llama al servicio de autenticación para validar las credenciales
         if (valid) {
             return "redirect:/clientes";
         } else {
@@ -32,6 +32,6 @@ public class LoginController {
 
     @GetMapping("/home")
     public String home() {
-        return "clientes";
+        return "clientes"; // Redirige a la página de clientes como página de inicio
     }
 }

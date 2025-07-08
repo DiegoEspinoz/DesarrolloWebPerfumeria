@@ -21,6 +21,6 @@ public class Cliente {
     private String sexo;
     private String dni;
 
-    @Column(columnDefinition = "TINYINT(1)")
+    @Column(columnDefinition = "TINYINT(1)") // Define el tipo de columna como booleano
     private boolean estado = true;
 }

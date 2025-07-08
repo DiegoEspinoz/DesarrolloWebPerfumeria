@@ -6,7 +6,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginDTO {
-
     private String nickname;
     private String password;
 }
