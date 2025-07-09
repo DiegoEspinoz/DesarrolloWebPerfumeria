@@ -4,6 +4,7 @@ import com.perfumeria.app.dto.ClienteDTO;
 import com.perfumeria.app.model.Cliente;
 import com.perfumeria.app.repository.ClienteRepository;
 import com.perfumeria.app.service.ClienteService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,9 @@ public class ClienteServiceImpl implements ClienteService {
         cliente.setDni(dto.getDni());
         cliente.setEstado(true); // activo por defecto
         clienteRepository.save(cliente);
+    }
+    @Override
+    public List<Cliente> obtenerClientes() {
+        return clienteRepository.findAll();
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class VentaServiceImpl implements VentaService {
@@ -70,5 +71,9 @@ public class VentaServiceImpl implements VentaService {
                 .findFirst()
                 .map(venta -> venta.getId())
                 .orElse(null);
+    }
+     @Override
+    public List<Venta> obtenerVentas() {
+        return ventaRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 }

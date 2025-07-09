@@ -18,9 +18,9 @@
     </div>
     <nav>
         <ul>
-            <li><a th:href="@{/clientes}" th:classappend="${paginaActual == 'clientes'} ? 'active'">Clientes</a></li>
-            <li><a th:href="@{/ventas}" th:classappend="${paginaActual == 'ventas'} ? 'active'">Ventas</a></li>
-            <li><a th:href="@{/reportes}" th:classappend="${paginaActual == 'reportes'} ? 'active'">Reportes</a></li>
+            <li><a th:href="@{/clientes}" th:classappend="${page == 'clientes'} ? 'active'">Clientes</a></li>
+            <li><a th:href="@{/ventas}" th:classappend="${page == 'ventas'} ? 'active'">Ventas</a></li>
+            <li><a th:href="@{/reportes}" th:classappend="${page == 'reportes'} ? 'active'">Reportes</a></li>
         </ul>
     </nav>
 </header>

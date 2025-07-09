@@ -22,4 +22,8 @@ public class Venta {
     private LocalDate fecha;
     
     private Double monto;
+     // Campo para almacenar el objeto Cliente asociado de forma temporal.
+    // @Transient evita que JPA intente guardarlo en la base de datos.
+    @Transient
+    private Cliente cliente;
 }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main}">
+<head>
+    <title>Reportes</title>
+    <link rel="stylesheet" th:href="@{/css/reportes.css}">
+</head>
+<body>
+<main layout:fragment="content">
+
+    <h1>Módulo de Reportes</h1>
+
+    <!-- Reporte de Ventas -->
+    <section class="report-container">
+        <h2>Reporte de Ventas</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID Venta</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="venta : ${ventas}">
+                    <td th:text="${venta.id}"></td>
+                    <td th:text="${venta.cliente != null ? venta.cliente.nombre + ' ' + venta.cliente.apellido : 'Cliente no encontrado'}"></td>
+                    <td th:text="${#temporals.format(venta.fecha, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${'S/. ' + #numbers.formatDecimal(venta.monto, 1, 2)}"></td>
+                </tr>
+                <tr th:if="${ventas == null or ventas.isEmpty()}">
+                    <td colspan="4">No hay ventas registradas.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Reporte de Clientes -->
+    <section class="report-container">
+        <h2>Reporte de Clientes</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre Completo</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Distrito</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.dni}"></td>
+                    <td th:text="${cliente.nombre + ' ' + cliente.apellido}"></td>
+                    <td th:text="${cliente.telefono}"></td>
+                    <td th:text="${cliente.correo}"></td>
+                    <td th:text="${cliente.distrito}"></td>
+                </tr>
+                <tr th:if="${clientes == null or clientes.isEmpty()}">
+                    <td colspan="5">No hay clientes registrados.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>
