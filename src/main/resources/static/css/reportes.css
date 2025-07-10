@@ -8,7 +8,7 @@
 }
 
 .report-container h2 {
-    color: #333;
+    color: #7b1fa2;
     margin-top: 0;
     margin-bottom: 1.5rem;
     border-bottom: 2px solid #f0f0f0;
@@ -27,7 +27,7 @@ table {
 }
 
 thead {
-    background-color: #343a40; /* Un gris oscuro */
+    background-color: #7b1fa2;
     color: #ffffff;
 }
 
